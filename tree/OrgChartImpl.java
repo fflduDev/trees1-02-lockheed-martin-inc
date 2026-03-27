@@ -46,19 +46,19 @@ public class OrgChartImpl implements OrgChart{
 	@Override
 	public void removeEmployee(Employee firedPerson) {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'removeEmployee'");
+		//throw new UnsupportedOperationException("Unimplemented method 'removeEmployee'");
 	}
 
 	@Override
 	public void showOrgChartDepthFirst() {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'showOrgChartDepthFirst'");
+		//throw new UnsupportedOperationException("Unimplemented method 'showOrgChartDepthFirst'");
 	}
 
 	@Override
 	public void showOrgChartBreadthFirst() {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'showOrgChartBreadthFirst'");
+		//throw new UnsupportedOperationException("Unimplemented method 'showOrgChartBreadthFirst'");
 	}
 	
 	// Provide public implementations to satisfy the interface's public clone/finalize declarations.
