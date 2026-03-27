@@ -28,6 +28,18 @@ public class OrgChartImpl implements OrgChart{
 	@Override
 	public void addDirectReport(Employee manager, Employee newPerson) {
 		// TODO Auto-generated method stub
+		for(int i = 0; i < nodes.size(); i++) {
+			GenericTreeNode<Employee> currentEmployee = nodes.get(i);
+			if(currentEmployee.data.equals(manager)) {
+				GenericTreeNode<Employee> newE = new GenericTreeNode<Employee>(newPerson);
+
+				currentEmployee.addChild(newE);
+				nodes.add(newE);
+				break;
+
+
+			}
+		}
 		throw new UnsupportedOperationException("Unimplemented method 'addDirectReport'");
 	}
 
