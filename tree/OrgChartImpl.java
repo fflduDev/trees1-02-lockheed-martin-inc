@@ -48,5 +48,15 @@ public class OrgChartImpl implements OrgChart{
 		throw new UnsupportedOperationException("Unimplemented method 'showOrgChartBreadthFirst'");
 	}
 	
+	// Provide public implementations to satisfy the interface's public clone/finalize declarations.
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
+	@Override
+	public void finalize() throws Throwable {
+		super.finalize();
+	}
 	
 }
