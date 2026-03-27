@@ -15,6 +15,7 @@ public class OrgChartImpl implements OrgChart{
 	@Override
 	public void addRoot(Employee e) {
 		// TODO Auto-generated method stub
+		GenericTreeNode<Employee> rootEmployee = new GenericTreeNode<Employee>(e);
 		throw new UnsupportedOperationException("Unimplemented method 'addRoot'");
 	}
 

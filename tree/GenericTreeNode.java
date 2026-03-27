@@ -6,6 +6,7 @@ public class GenericTreeNode<E> {
 	//<some list of children>
 	ArrayList<GenericTreeNode<E>> children;
 	
+	
 	public GenericTreeNode(E theItem) {
 		data = theItem;
 	}
