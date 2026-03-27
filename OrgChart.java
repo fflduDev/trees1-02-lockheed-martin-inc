@@ -8,6 +8,24 @@ public interface OrgChart {
 	public void clear();
 		// get rid of the org chart
 	
+	Object clone() throws CloneNotSupportedException;
+
+
+	@Override
+	boolean equals(Object obj);
+
+
+	void finalize() throws Throwable;
+
+
+	@Override
+	int hashCode();
+
+
+	@Override
+	String toString();
+
+
 	public void addDirectReport(Employee manager, Employee newPerson);
 		// add the newPerson as a direct report (child) of manager
 	
