@@ -3,9 +3,6 @@ package tree;
 public class testOrgChart {
 
 	public static void main(String[] args) {
-
-		
-
 		// fill the org chart
 		OrgChart company = new OrgChartImpl();
 		

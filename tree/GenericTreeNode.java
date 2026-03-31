@@ -9,9 +9,13 @@ public class GenericTreeNode<E> {
 	
 	public GenericTreeNode(E theItem) {
 		data = theItem;
+		children = new ArrayList<GenericTreeNode<E>>();
 	}
 	
 	public void addChild(GenericTreeNode<E> theItem) {
+		if (children == null) {
+			children = new ArrayList<GenericTreeNode<E>>();
+		}
 		children.add(theItem);
 	}
 	

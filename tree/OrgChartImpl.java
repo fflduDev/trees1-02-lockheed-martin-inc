@@ -2,6 +2,7 @@ package tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 import tree.GenericTreeNode;
 
@@ -16,13 +17,15 @@ public class OrgChartImpl implements OrgChart{
 	public void addRoot(Employee e) {
 		// TODO Auto-generated method stub
 		GenericTreeNode<Employee> rootEmployee = new GenericTreeNode<Employee>(e);
+		nodes.add(rootEmployee);
 		//throw new UnsupportedOperationException("Unimplemented method 'addRoot'");
 	}
 
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'clear'");
+		nodes.clear();
+		// throw new UnsupportedOperationException("Unimplemented method 'clear'");
 	}
 
 	@Override
@@ -43,21 +46,67 @@ public class OrgChartImpl implements OrgChart{
 		//throw new UnsupportedOperationException("Unimplemented method 'addDirectReport'");
 	}
 
-	@Override
-	public void removeEmployee(Employee firedPerson) {
-		// TODO Auto-generated method stub
+    @Override
+    public void removeEmployee(Employee removed) {
+        GenericTreeNode<Employee> target = null;
+
+        for (int i = 0; i < nodes.size(); i++) {
+            if (nodes.get(i).data.equals(removed)) {
+                target = nodes.get(i);
+                break;
+            }
+        }
+
+        if (target == null) {
+            return;
+        }
+
+        for (int i = 0; i < nodes.size(); i++) {
+            nodes.get(i).children.remove(target);
+        }
+
+        nodes.remove(target);
+    }
 		//throw new UnsupportedOperationException("Unimplemented method 'removeEmployee'");
-	}
 
 	@Override
 	public void showOrgChartDepthFirst() {
+		System.out.println("\nDepth First:");
 		// TODO Auto-generated method stub
+		Stack<GenericTreeNode<Employee>> stack = new Stack<>();
+		if (nodes.isEmpty()) {
+			return; 
+		}
+		
+		stack.push(nodes.get(0));
+		while (!stack.isEmpty()) {
+			GenericTreeNode<Employee> current = stack.pop();
+			System.out.println(current.data); 
+			
+			List<GenericTreeNode<Employee>> children = current.children;
+			for (int i = children.size() - 1; i >= 0; i--) {
+				stack.push(children.get(i));
+			}
+		}
 		//throw new UnsupportedOperationException("Unimplemented method 'showOrgChartDepthFirst'");
 	}
 
 	@Override
 	public void showOrgChartBreadthFirst() {
+		System.out.println("\nBreadth First:");
 		// TODO Auto-generated method stub
+		if (nodes.isEmpty()) {
+			return; 
+		}
+		List<GenericTreeNode<Employee>> queue = new ArrayList<>();
+		queue.add(nodes.get(0));
+		while (!queue.isEmpty()) {
+			GenericTreeNode<Employee> current = queue.remove(0);
+			System.out.println(current.data); 
+			
+			queue.addAll(current.children);
+		}
+
 		//throw new UnsupportedOperationException("Unimplemented method 'showOrgChartBreadthFirst'");
 	}
 	
