@@ -47,11 +47,11 @@ public class OrgChartImpl implements OrgChart{
 	}
 
     @Override
-    public void removeEmployee(Employee removed) {
+    public void removeEmployee(Employee firedPerson) {
         GenericTreeNode<Employee> target = null;
 
         for (int i = 0; i < nodes.size(); i++) {
-            if (nodes.get(i).data.equals(removed)) {
+            if (nodes.get(i).data.equals(firedPerson)) {
                 target = nodes.get(i);
                 break;
             }
