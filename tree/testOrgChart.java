@@ -39,6 +39,7 @@ public class testOrgChart {
 		company.removeEmployee(e5);
 		
 		// show it depth first
+		System.out.println("\nAfter firing some bums...");
 		company.showOrgChartDepthFirst();
 		
 		// show breadth first

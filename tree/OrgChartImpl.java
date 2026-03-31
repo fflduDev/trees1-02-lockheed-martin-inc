@@ -49,7 +49,33 @@ public class OrgChartImpl implements OrgChart{
     @Override
     public void removeEmployee(Employee firedPerson) {
 		// TODO Auto-generated method stub
-    }
+		GenericTreeNode <Employee> target = null;
+		GenericTreeNode <Employee> parent = null;
+
+		for (GenericTreeNode<Employee> node : nodes) {
+			for (GenericTreeNode<Employee> child : node.children) {
+				if (child.data.equals(firedPerson)) {
+					target = child;
+					parent = node;
+					break;
+				}
+			}
+		}
+
+		if(target == null){
+			if(!nodes.isEmpty() && nodes.get(0).data.equals(firedPerson)){
+				target = nodes.get(0);
+			} else {
+				return;
+			}
+		}
+
+		if (parent != null) {
+			parent.children.remove(target);
+			parent.children.addAll(target.children);
+        }
+		nodes.remove(target);
+	}
 		//throw new UnsupportedOperationException("Unimplemented method 'removeEmployee'");
 
 	@Override
