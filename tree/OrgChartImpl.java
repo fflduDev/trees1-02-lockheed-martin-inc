@@ -8,29 +8,21 @@ import tree.GenericTreeNode;
 
 public class OrgChartImpl implements OrgChart{
 
-
-	
-	//Employee is your generic 'E'..
-	private List<GenericTreeNode<Employee>> nodes = new ArrayList<>();
+    private List<GenericTreeNode<Employee>> nodes = new ArrayList<>();
 
 	@Override
 	public void addRoot(Employee e) {
-		// TODO Auto-generated method stub
 		GenericTreeNode<Employee> rootEmployee = new GenericTreeNode<Employee>(e);
 		nodes.add(rootEmployee);
-		//throw new UnsupportedOperationException("Unimplemented method 'addRoot'");
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
 		nodes.clear();
-		// throw new UnsupportedOperationException("Unimplemented method 'clear'");
 	}
 
 	@Override
 	public void addDirectReport(Employee manager, Employee newPerson) {
-		// TODO Auto-generated method stub
 		for(int i = 0; i < nodes.size(); i++) {
 			GenericTreeNode<Employee> currentEmployee = nodes.get(i);
 			if(currentEmployee.data.equals(manager)) {
@@ -43,12 +35,10 @@ public class OrgChartImpl implements OrgChart{
 
 			}
 		}
-		//throw new UnsupportedOperationException("Unimplemented method 'addDirectReport'");
 	}
 
     @Override
     public void removeEmployee(Employee firedPerson) {
-		// TODO Auto-generated method stub
 		GenericTreeNode <Employee> target = null;
 		GenericTreeNode <Employee> parent = null;
 
@@ -76,12 +66,10 @@ public class OrgChartImpl implements OrgChart{
         }
 		nodes.remove(target);
 	}
-		//throw new UnsupportedOperationException("Unimplemented method 'removeEmployee'");
 
 	@Override
 	public void showOrgChartDepthFirst() {
 		System.out.println("\nDepth First:");
-		// TODO Auto-generated method stub
 		Stack<GenericTreeNode<Employee>> stack = new Stack<>();
 		if (nodes.isEmpty()) {
 			return; 
@@ -97,13 +85,11 @@ public class OrgChartImpl implements OrgChart{
 				stack.push(children.get(i));
 			}
 		}
-		//throw new UnsupportedOperationException("Unimplemented method 'showOrgChartDepthFirst'");
 	}
 
 	@Override
 	public void showOrgChartBreadthFirst() {
 		System.out.println("\nBreadth First:");
-		// TODO Auto-generated method stub
 		if (nodes.isEmpty()) {
 			return; 
 		}
@@ -115,11 +101,8 @@ public class OrgChartImpl implements OrgChart{
 			
 			queue.addAll(current.children);
 		}
-
-		//throw new UnsupportedOperationException("Unimplemented method 'showOrgChartBreadthFirst'");
 	}
 	
-	// Provide public implementations to satisfy the interface's public clone/finalize declarations.
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
@@ -129,5 +112,4 @@ public class OrgChartImpl implements OrgChart{
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
-	
 }

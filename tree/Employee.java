@@ -1,10 +1,5 @@
 package tree;
 
-
-/**
- * The entity we're storing in our node
- */
-
 public class Employee implements Comparable<Employee> {
 	
 	private String name;

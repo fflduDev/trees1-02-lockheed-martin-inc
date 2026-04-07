@@ -3,7 +3,6 @@ package tree;
 public class testOrgChart {
 
 	public static void main(String[] args) {
-		// fill the org chart
 		OrgChart company = new OrgChartImpl();
 		
 		Employee e1 = new Employee("Jack", 1001, "CEO");
@@ -28,24 +27,18 @@ public class testOrgChart {
 		company.addDirectReport(e7, e8);
 		company.addDirectReport(e7, e9);
 		
-		// show it depth first
 		company.showOrgChartDepthFirst();
 		
-		// show breadth first
 		company.showOrgChartBreadthFirst();
 		
-		// and remove some people
 		company.removeEmployee(e4);
 		company.removeEmployee(e5);
 		
-		// show it depth first
 		System.out.println("\nAfter firing some bums...");
 		company.showOrgChartDepthFirst();
 		
-		// show breadth first
 		company.showOrgChartBreadthFirst();
 		
 
 	}
-
 }
